@@ -1,0 +1,150 @@
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--primary-bg);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  animation: headerSlideDown 0.35s ease-out;
+}
+
+@keyframes headerSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--contrast);
+}
+
+.logo:hover {
+  color: var(--accent-dark);
+}
+
+.logo-icon {
+  font-size: 1.5rem;
+  filter: grayscale(0.2);
+}
+
+.logo-text {
+  white-space: nowrap;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+  background: transparent;
+}
+
+.menu-toggle .hamburger {
+  width: 22px;
+  height: 2px;
+  background: var(--contrast);
+  border-radius: 1px;
+  transition: transform 0.2s;
+}
+
+.main-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.main-nav a {
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.main-nav a:hover {
+  background: rgba(144, 238, 144, 0.2);
+  color: var(--accent-dark);
+}
+
+.main-nav a.active {
+  color: var(--accent-dark);
+  background: rgba(144, 238, 144, 0.25);
+}
+
+.cta-button {
+  margin-left: 0.5rem;
+  padding: 0.5rem 1rem !important;
+  background: var(--accent) !important;
+  color: var(--contrast) !important;
+  font-weight: 600;
+}
+
+.cta-button:hover {
+  background: var(--accent-hover) !important;
+  color: var(--contrast) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(144, 238, 144, 0.4);
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .main-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--primary-bg);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .main-nav.open {
+    display: flex;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .main-nav .cta-button {
+    margin-left: 0;
+    margin-top: 0.5rem;
+    text-align: center;
+  }
+}
+
+@media (min-width: 769px) {
+  .main-nav {
+    display: flex;
+    align-items: center;
+  }
+}
